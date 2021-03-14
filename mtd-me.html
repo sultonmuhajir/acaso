@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Acaso</title>
+   <link rel="icon" href="asset/img/favicon.ico">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+   <link rel="stylesheet" href="asset/style.css">
+</head>
+
+<body>
+   <div class="container">
+
+      <!-- => Header -->
+      <header>
+         <h2>Acaso</h2>
+      </header>
+
+
+      <!-- => Main -->
+      <main>
+         <div class="dropdown">
+            <select name="metode" id="metode">
+               <option value="1">Manual - Normal</option>
+               <option value="2" selected>Manual - Eliminasi</option>
+               <option value="3">Auto - Normal</option>
+               <option value="4">Auto - Eliminasi</option>
+            </select>
+            <i class="fas fa-info-circle"></i>
+         </div>
+
+         <div class="input">
+            <textarea id="text-area" spellcheck="false"></textarea>
+         </div>
+
+         <div class="button">
+            <button id="lock-button" class="lock-button"><i class="fas fa-lock" id="lock-toogle"></i></button>
+            <div class="spin-button">
+               <i class="fas fa-play-circle"></i>
+               <i class="fas fa-stop-circle"></i>
+            </div>
+            <button id="hapus" class="hapus"><i class="fas fa-trash"></i></button>
+         </div>
+
+         <div class="aksi">
+            <img src="asset/img/loading.gif" alt="Loading" class="loading" id="loading">
+            <h1 id="result" class="result"></h1>
+         </div>
+      </main>
+
+
+      <!-- => Footer -->
+      <footer>
+         <p>&copy All Rights Reserved by Mhjr</p>
+      </footer>
+
+   </div>
+
+
+   <script src="asset/script.js"></script>
+   <script>
+      lockButton.addEventListener("click", mLockButton);
+      play.addEventListener("click", mPlay);
+      hapus.addEventListener("click", mHapus);
+      stop.addEventListener("click", function () {
+         loading.style.display = "none";
+         result.style.display = "inline-block";
+         let text = texAr.value;
+         let mArray = text.split("-").filter(el => el != "");
+         const random = mArray[Math.floor(Math.random() * mArray.length)];
+         result.innerHTML = random;
+         if (mArray.length == 1) {
+            text = texAr.value = text.split(random).join("");
+            texAr.disabled = false;
+            lockToogle.classList.remove("fa-lock-open");
+            lockToogle.classList.add("fa-lock");
+         } else if (random == mArray[0]) {
+            text = texAr.value = text.split(`${random}-`).join("");
+         } else {
+            text = texAr.value = text.split(`-${random}`).join("");
+         }
+         play.style.display = "inline-block";
+         stop.style.display = "none";
+         lockButton.style.display = "initial";
+         hapus.style.display = "initial";
+      });
+      metode.addEventListener("change", function () {
+         if (metode.value == "1") {
+            window.location.href = "index.html";
+         } else if (metode.value == "3") {
+            window.location.href = "mtd-an.html";
+         } else {
+            window.location.href = "mtd-ae.html";
+         }
+      })
+   </script>
+</body>
+
+</html>

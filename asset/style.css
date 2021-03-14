@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --c1: #eeeeee;
+   --c2: #00adb5;
+   --c3: #222831;
+}
+
+body {
+   background-image: url(img/bg.jpeg);
+   background-size: cover;
+   color: var(--c3);
+   font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+   background-color: var(--c1);
+   border-radius: 5px;
+   position: relative;
+   margin: 2.8rem auto;
+   max-width: 25rem;
+   text-align: center;
+   overflow: hidden;
+}
+
+
+
+/* => Header */
+header {
+   background-color: var(--c2);
+   padding: .5rem;
+}
+
+header h2 {
+   font-size: 1.7rem;
+   font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* => Main */
+main {
+   padding: 1.2rem;
+}
+
+main .dropdown {
+   margin: .7rem auto 1.8rem;
+   display: flex;
+   justify-content: space-between;
+}
+
+main select {
+   font-family: 'Open Sans', sans-serif;
+   width: 90%;
+   height: 1.5rem;
+   cursor: pointer;
+   outline: none;
+}
+
+main .fa-info-circle {
+   font-size: 1.2rem;
+   margin-top: 1.5px;
+   margin-right: .2rem;
+   cursor: pointer;
+}
+
+main .text-input {
+   display: flex;
+   justify-content: space-between;
+   margin: .7rem auto;
+}
+
+main input {
+   font-family: 'Open Sans', sans-serif;
+   width: 48%;
+   height: 1.5rem;
+   outline: none;
+   padding: 3px;
+}
+
+main textarea {
+   font-family: 'Open Sans', sans-serif;
+   letter-spacing: .5px;
+   width: 100%;
+   height: 12rem;
+   padding: 5px;
+   outline: none;
+}
+
+main .button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: .5rem;
+}
+
+main .lock-button,
+main .hapus {
+   outline: none;
+   width: 2.5rem;
+   height: 1.7rem;
+   cursor: pointer;
+}
+
+main .fa-play-circle,
+main .fa-stop-circle {
+   font-size: 3rem;
+   margin: .2rem 1rem;
+   cursor: pointer;
+   position: relative;
+   z-index: 1;
+}
+
+main .fa-stop-circle {
+   display: none;
+}
+
+main .aksi {
+   margin-top: .5rem;
+   height: 4.5rem;
+   overflow: hidden;
+}
+
+main h1 {
+   font-size: 2.3rem;
+   margin-top: .12rem !important;
+}
+
+main .loading {
+   margin: -1.4rem auto;
+   width: 7rem;
+   display: none;
+}
+
+main .result {
+   margin-top: 1rem;
+   font-family: 'Poppins', sans-serif;
+}
+
+/* => Footer */
+footer {
+   background-color: var(--c2);
+   font-size: .8rem;
+   padding: 10px;
+}
+
+
+
+
+/* => Media Queries */
+@media (max-width: 410px) {
+   .container {
+      width: 95%;
+      border-radius: 3px;
+   }
+
+   main {
+      padding: 10px;
+   }
+}
