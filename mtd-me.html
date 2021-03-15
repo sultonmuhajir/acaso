@@ -12,6 +12,7 @@
 </head>
 
 <body>
+   <div id="modal"></div>
    <div class="container">
 
       <!-- => Header -->
@@ -65,28 +66,7 @@
       lockButton.addEventListener("click", mLockButton);
       play.addEventListener("click", mPlay);
       hapus.addEventListener("click", mHapus);
-      stop.addEventListener("click", function () {
-         loading.style.display = "none";
-         result.style.display = "inline-block";
-         let text = texAr.value;
-         let mArray = text.split("-").filter(el => el != "");
-         const random = mArray[Math.floor(Math.random() * mArray.length)];
-         result.innerHTML = random;
-         if (mArray.length == 1) {
-            text = texAr.value = text.split(random).join("");
-            texAr.disabled = false;
-            lockToogle.classList.remove("fa-lock-open");
-            lockToogle.classList.add("fa-lock");
-         } else if (random == mArray[0]) {
-            text = texAr.value = text.split(`${random}-`).join("");
-         } else {
-            text = texAr.value = text.split(`-${random}`).join("");
-         }
-         play.style.display = "inline-block";
-         stop.style.display = "none";
-         lockButton.style.display = "initial";
-         hapus.style.display = "initial";
-      });
+      stop.addEventListener("click", meStop);
       metode.addEventListener("change", function () {
          if (metode.value == "1") {
             window.location.href = "index.html";

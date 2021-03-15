@@ -94,3 +94,115 @@ function aPlay() {
       hapus.style.display = "none";
    }
 }
+
+
+function mnStop() {
+   loading.style.display = "none";
+   result.style.display = "inline-block";
+   let text = texAr.value;
+   let mArray = text.split("-").filter(el => el != "");
+   const random = mArray[Math.floor(Math.random() * mArray.length)];
+   result.innerHTML = random;
+   play.style.display = "inline-block";
+   stop.style.display = "none";
+   lockButton.style.display = "initial";
+   hapus.style.display = "initial";
+}
+
+
+function meStop() {
+   loading.style.display = "none";
+   result.style.display = "inline-block";
+   let text = texAr.value;
+   let mArray = text.split("-").filter(el => el != "");
+   const random = mArray[Math.floor(Math.random() * mArray.length)];
+   result.innerHTML = random;
+   if (mArray.length == 1) {
+      text = texAr.value = text.split(random).join("");
+      texAr.disabled = false;
+      lockToogle.classList.remove("fa-lock-open");
+      lockToogle.classList.add("fa-lock");
+   } else if (random == mArray[0]) {
+      text = texAr.value = text.split(`${random}-`).join("");
+   } else {
+      text = texAr.value = text.split(`-${random}`).join("");
+   }
+   play.style.display = "inline-block";
+   stop.style.display = "none";
+   lockButton.style.display = "initial";
+   hapus.style.display = "initial";
+}
+
+
+function anStop() {
+   loading.style.display = "none";
+   result.style.display = "inline-block";
+   const random = aArray[Math.floor(Math.random() * aArray.length)];
+   result.innerHTML = random;
+   texAr.value = aArray;
+   play.style.display = "inline-block";
+   stop.style.display = "none";
+   lockButton.style.display = "initial";
+   hapus.style.display = "initial";
+   if (aArray.length == 0) {
+      awal.disabled = false;
+      akhir.disabled = false;
+   }
+}
+
+
+function aeStop() {
+   loading.style.display = "none";
+   result.style.display = "inline-block";
+   const random = aArray[Math.floor(Math.random() * aArray.length)];
+   result.innerHTML = random;
+   aArray = aArray.filter(el => el != random);
+   texAr.value = aArray;
+   play.style.display = "inline-block";
+   stop.style.display = "none";
+   lockButton.style.display = "initial";
+   hapus.style.display = "initial";
+   if (aArray.length == 0) {
+      awal.disabled = false;
+      akhir.disabled = false;
+      lockButton.style.visibility = "initial";
+   }
+}
+
+
+
+// -> Modal
+function load(element, url) {
+   const xhr = new XMLHttpRequest();
+   xhr.open("GET", url, false);
+   xhr.send(null);
+   element.innerHTML = xhr.responseText;
+}
+load(document.getElementById('modal'), './asset/modal.html');
+
+
+const buttonModal = document.querySelector(".fa-info-circle");
+const modal = document.querySelector(".modal");
+const bgmodal = document.querySelector(".modal .bgmodal");
+const mainModal = document.querySelector(".modal .main");
+const closeModal = document.querySelector(".modal i");
+
+function clearModal() {
+   modal.style.display = "none";
+   bgmodal.style.backgroundColor = "initial";
+   bgmodal.style.opacity = ".5";
+   mainModal.style.transform = "translate(-50%, -100%)";
+   mainModal.style.opacity = "0";
+}
+
+buttonModal.addEventListener("click", function () {
+   modal.style.display = "initial";
+   setTimeout(function () {
+      bgmodal.style.backgroundColor = "black";
+      bgmodal.style.opacity = ".5";
+      mainModal.style.transform = "translate(-50%, -50%)";
+      mainModal.style.opacity = "1";
+   }, 100);
+});
+closeModal.addEventListener("click", clearModal);
+bgmodal.addEventListener("click", clearModal);
