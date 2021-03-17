@@ -185,9 +185,9 @@ const buttonModal = document.querySelector(".fa-info-circle");
 const modal = document.querySelector(".modal");
 const bgmodal = document.querySelector(".modal .bgmodal");
 const mainModal = document.querySelector(".modal .main");
-const closeModal = document.querySelector(".modal i");
+const xModal = document.querySelector(".modal i");
 
-function clearModal() {
+function closeModal() {
    modal.style.display = "none";
    bgmodal.style.backgroundColor = "initial";
    bgmodal.style.opacity = ".5";
@@ -204,5 +204,5 @@ buttonModal.addEventListener("click", function () {
       mainModal.style.opacity = "1";
    }, 100);
 });
-closeModal.addEventListener("click", clearModal);
-bgmodal.addEventListener("click", clearModal);
+xModal.addEventListener("click", closeModal);
+bgmodal.addEventListener("click", closeModal);

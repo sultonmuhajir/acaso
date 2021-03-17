@@ -4,7 +4,7 @@
    }
 
    .modal .bgmodal {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
@@ -14,9 +14,9 @@
    }
 
    .modal .main {
-      width: 600px;
+      width: 35rem;
       background-color: white;
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -120%);
@@ -43,14 +43,35 @@
    }
 
    .modal .body {
-      padding: 1rem 1rem 2rem;
+      height: 50vh;
+      overflow: auto;
+      font-size: .9rem;
+      padding: .8rem 1.1rem 2rem;
       line-height: 1.3rem;
       text-align: justify;
+   }
+
+   .modal ul {
+      padding-left: 1.3rem;
+   }
+
+   .modal li {
+      padding-top: .3rem;
+      padding-bottom: .3rem;
    }
 
    @media (max-width: 630px) {
       .modal .main {
          width: 95%;
+      }
+
+      .modal .header {
+         padding-left: .7rem;
+      }
+
+      .modal .body {
+         padding-left: .7rem;
+         padding-right: 1.1rem;
       }
    }
 </style>
@@ -64,7 +85,28 @@
          <i class="fas fa-times"></i>
       </div>
       <div class="body">
-         <p>Under Construction</p>
+         <p>Acaso merupakan aplikasi untuk mengambil value random dari sebuah array.</p><br>
+         <h4>Metode</h4>
+         <ul>
+            <li>Manual - Normal, array ditulis manual oleh user, dimana setiap value dipisah dengan keyword "-". Array
+               bersifat statis, tidak terpengaruh oleh value yang muncul. Contoh penulisan array : Kucing - Burung -
+               Ikan.</li>
+            <li>Manual - Eliminasi, Penulisan array sama seperti metode-1. Array bersifat dinamis, value yang muncul
+               akan dihapus dari array.</li>
+            <li>Auto - Normal, metode auto dikhususkan untuk array numerik, dimana array didapat dari inputan angka
+               pertama dan terakhir. Contoh penulisan array : Awal = 1, Akhir = 5. Maka array yang didapat adalah
+               1,2,3,4,5. Array bersifat statis sama seperti metode-1.</li>
+            <li>Auto - Eliminasi, Penulisan array sama seperti metode-3, dan array bersifat dinamis sama seperti
+               metode-2.</li><br>
+         </ul>
+         <h4>Fungsi Tombol</h4>
+         <ul>
+            <li>Lock & Unlock, untuk mengunci dan membuka array yang dimasukkan. (Nb: Pastikan format pengisian array
+               sudah benar)</li>
+            <li>Play, untuk menjalankan program acaso. (Nb: Array harus dikunci terlebih dahulu sebelum dijalankan)</li>
+            <li>Stop, untuk menghentikan dan mendapatkan hasil dari program yang dijalankan.</li>
+            <li>Delete, untuk menghapus array yang dibuat.</li>
+         </ul>
       </div>
    </div>
 </div>
