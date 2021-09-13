@@ -178,7 +178,7 @@ function load(element, url) {
    xhr.send(null);
    element.innerHTML = xhr.responseText;
 }
-load(document.getElementById('modal'), './asset/modal.html');
+load(document.getElementById('modal'), './assets/modal.html');
 
 
 const buttonModal = document.querySelector(".fa-info-circle");
